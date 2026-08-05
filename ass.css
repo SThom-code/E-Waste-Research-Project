@@ -208,3 +208,16 @@ footer {
 summary  {
   list-style: none;
 }
+
+/* ==========================================================================
+   10. LINK STYLE
+   ========================================================================== */
+.link  {
+  color: #15803d;
+  text-decoration-line: none;
+}
+
+.link:hover  {
+  color: #1e3a2f;
+  text-decoration-line: none;
+}
