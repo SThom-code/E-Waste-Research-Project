@@ -1,0 +1,203 @@
+/* ==========================================================================
+   1. SYSTEM SETUP
+   ========================================================================== */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background-color: #f3f7f4;   /* Soft slate with a hint of clean environmental green */
+    color: #1e293b;              /* Premium high-contrast dark charcoal */
+    line-height: 1.6;
+    font-size: 16px;
+    padding-bottom: 4rem;
+}
+
+/* ==========================================================================
+   2. EYE-CATCHING  HEADER
+   ========================================================================== */
+header {
+    background: linear-gradient(135deg, #0f172a 0%, #1e3a2f 100%); /* Deep tech slate to forest gradient */
+    color: #ffffff;
+    padding: 4rem 1.5rem;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+header h1 {
+    color: #4ade80;              /* luminous emerald green */
+    font-size: 2.5rem;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    margin-bottom: 0.75rem;
+}
+
+header p {
+    color: #94a3b8;
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+/* ==========================================================================
+   3. MENU BUTTONS
+   ========================================================================== */
+nav {
+    background-color: #ffffff;
+    border-bottom: 2px solid #e2e8f0;
+    display: flex;
+    justify-content: center;
+    padding: 1rem;
+    gap: 0.75rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+nav a {
+    color: #334155;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 600;
+    padding: 0.6rem 1.25rem;
+    border-radius: 8px;
+    background-color: #f8fafc;
+    border: 1px solid #e2e8f0;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1); /* Smooth springy motion */
+}
+
+/* Eye-catching tab lifting animation when hovered */
+nav a:hover {
+    background-color: #ffffff;
+    color: #16a34a;
+    border-color: #16a34a;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(22, 163, 74, 0.12);
+}
+
+/* High-contrast highlight for the page you are on */
+nav a.active {
+    background-color: #16a34a;
+    color: #ffffff;
+    border-color: #16a34a;
+    box-shadow: 0 4px 14px rgba(22, 163, 74, 0.3);
+}
+
+/* ==========================================================================
+   4. CONTENT CARDS WITH INTERACTIVE HOVER EFFECTS
+   ========================================================================== */
+main {
+    max-width: 860px;
+    margin: 3rem auto 0 auto;
+    padding: 0 1.5rem;
+}
+
+section {
+    background-color: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+    padding: 2.25rem;
+    margin-bottom: 2rem;
+    border-left: 5px solid #cbd5e1; /* Subtle default left line */
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(15, 23, 42, 0.015);
+}
+
+/* Beautiful dynamic shift when scanning down the page */
+section:hover {
+    border-left-color: #16a34a; /* Glows green on hover */
+    transform: translateX(4px); /* Gently slides over to catch the eye */
+    box-shadow: 0 10px 25px rgba(15, 23, 42, 0.05);
+}
+
+/* ==========================================================================
+   5. UNIFORM & TYPOGRAPHY METRICS
+   ========================================================================== */
+h2 {
+    color: #0f172a;
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin-bottom: 1.25rem;
+}
+
+h3 {
+    color: #16a34a;
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin: 1.75rem 0 0.75rem 0;
+}
+
+p {
+    font-size: 1.05rem;
+    color: #334155;
+    margin-bottom: 1.25rem;
+}
+
+p:last-child {
+    margin-bottom: 0;
+}
+
+/* ==========================================================================
+   6. CLEAN BULLET VARIATIONS
+   ========================================================================== */
+ul {
+    margin-bottom: 1.25rem;
+}
+
+li {
+    font-size: 1.05rem;
+    position: relative;
+    padding-left: 1.5rem;
+    margin-bottom: 0.8rem;
+    color: #334155;
+    list-style: none;
+}
+
+/* Adds custom geometric green bullets */
+li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: #16a34a;
+    font-size: 1.2rem;
+    top: -2px;
+}
+
+li strong {
+    color: #0f172a;
+    font-weight: 600;
+}
+
+/* ==========================================================================
+   7. KEY HIGHLIGHT BOX (DID YOU KNOW / ANCHORS)
+   ========================================================================== */
+.highlight-box {
+    background: linear-gradient(90deg, #f0fdf4 0%, #ffffff 100%);
+    border: 1px solid #bbf7d0;
+    border-left: 6px solid #16a34a;
+    padding: 2rem;
+    border-radius: 12px;
+}
+
+.highlight-box:hover {
+    transform: scale(1.01); /* Subtle premium pop animation */
+}
+
+.highlight-box h2 {
+    color: #15803d;
+    margin-bottom: 1rem;
+}
+
+/* ==========================================================================
+   8. FOOTER
+   ========================================================================== */
+footer {
+    text-align: center;
+    margin-top: 5rem;
+    padding: 2rem 1rem;
+    border-top: 1px solid #e2e8f0;
+    color: #64748b;
+    font-size: 0.9rem;
+}
