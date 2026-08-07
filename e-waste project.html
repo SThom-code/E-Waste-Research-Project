@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>E-Waste | Environmental Hazards & Solutions</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      /*Colour theme: Forest Green + Turquoise / Teal*/
+      --forest-dark: #0a1f18;
+      --forest-main: #13382c;
+      --forest-medium: #1d4d3d;
+      --forest-light: #2a6652;
+      
+      --teal-primary: #00a896;
+      --teal-accent: #02c39a;
+      --turquoise-glow: #17c3b2;
+      --teal-light-bg: #e8f8f5;
+      
+      --text-main: #1c2826;
+      --text-muted: #4a5d58;
+      --text-light: #f1f8f5;
+      --card-bg: #ffffff;
+      --border-color: #d1e7e0;
+      
+      --shadow-sm: 0 2px 8px rgba(10, 31, 24, 0.06);
+      --shadow-md: 0 8px 24px rgba(10, 31, 24, 0.1);
+      --shadow-lg: 0 16px 32px rgba(0, 168, 150, 0.15);
+      
+      --radius-sm: 8px;
+      --radius-md: 16px;
+      --radius-lg: 24px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: #f4f9f7;
+      color: var(--text-main);
+      line-height: 1.6;
+      scroll-behavior: smooth;
+    }
+
+    /* Top Navigation */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(10, 31, 24, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(2, 195, 154, 0.2);
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+    }
+
+    .logo {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: 1.4rem;
+      color: var(--text-light);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      text-decoration: none;
+    }
+
+    .logo span {
+      color: var(--teal-accent);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--text-light);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: color 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--teal-accent);
+    }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(135deg, var(--forest-dark) 0%, var(--forest-main) 60%, var(--forest-medium) 100%);
+      color: var(--text-light);
+      padding: 5rem 2rem 6rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -10%;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(2, 195, 154, 0.15) 0%, rgba(0,0,0,0) 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .hero-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .badge {
+      display: inline-block;
+      background: rgba(2, 195, 154, 0.15);
+      border: 1px solid var(--teal-accent);
+      color: var(--teal-accent);
+      padding: 0.35rem 0.9rem;
+      border-radius: 50px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 1.2rem;
+    }
+
+    .hero h1 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 3.2rem;
+      line-height: 1.15;
+      margin-bottom: 1.2rem;
+      font-weight: 700;
+    }
+
+    .hero h1 span {
+      background: linear-gradient(90deg, #ffffff, var(--teal-accent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      color: #c2ded6;
+      margin-bottom: 2rem;
+    }
+
+    .hero-img-card {
+      position: relative;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+      border: 2px solid rgba(2, 195, 154, 0.3);
+    }
+
+    .hero-img-card img {
+      width: 100%;
+      height: 380px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .hero-img-caption {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(0deg, rgba(10, 31, 24, 0.9) 0%, transparent 100%);
+      padding: 1.5rem 1rem 0.8rem;
+      font-size: 0.85rem;
+      color: #d8f3ec;
+      text-align: center;
+    }
+
+    /* Container & Section Styling */
+    .section-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 5rem 2rem;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 3.5rem;
+    }
+
+    .section-title h2 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 2.3rem;
+      color: var(--forest-dark);
+      margin-bottom: 0.5rem;
+    }
+
+    .section-title p {
+      color: var(--text-muted);
+      font-size: 1.05rem;
+    }
+
+    .title-line {
+      width: 60px;
+      height: 4px;
+      background: var(--teal-primary);
+      margin: 0.8rem auto 0;
+      border-radius: 2px;
+    }
+
+    /* Section 1: Impacts Cards Grid */
+    .impact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2rem;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border-radius: var(--radius-md);
+      padding: 2.2rem;
+      border: 1px solid var(--border-color);
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+      position: relative;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--teal-primary);
+    }
+
+    .card-icon {
+      width: 50px;
+      height: 50px;
+      border-radius: 12px;
+      background: var(--teal-light-bg);
+      color: var(--teal-primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      margin-bottom: 1.2rem;
+      font-weight: bold;
+    }
+
+    .card h3 {
+      font-size: 1.35rem;
+      color: var(--forest-main);
+      margin-bottom: 0.8rem;
+    }
+
+    .card p {
+      color: var(--text-muted);
+      font-size: 0.98rem;
+    }
+
+    /* Section 2: Bioaccumulation & Biomagnification */
+    .bio-wrapper {
+      background: white;
+      border-radius: var(--radius-lg);
+      padding: 3rem 2rem;
+      border: 1px solid var(--border-color);
+      box-shadow: var(--shadow-md);
+    }
+
+    .bio-split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2.5rem;
+      margin-bottom: 3rem;
+    }
+
+    .bio-column {
+      background: #f8fbf9;
+      border-left: 4px solid var(--teal-primary);
+      padding: 1.8rem;
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    }
+
+    .bio-column h3 {
+      font-size: 1.4rem;
+      color: var(--forest-main);
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .bio-column ul {
+      list-style: none;
+    }
+
+    .bio-column li {
+      margin-bottom: 0.8rem;
+      position: relative;
+      padding-left: 1.5rem;
+      color: var(--text-muted);
+      font-size: 0.98rem;
+    }
+
+    .bio-column li::before {
+      content: '•';
+      color: var(--teal-accent);
+      font-size: 1.5rem;
+      position: absolute;
+      left: 0;
+      top: -4px;
+    }
+
+    .trophic-highlight {
+      background: linear-gradient(135deg, var(--forest-main), var(--forest-dark));
+      color: white;
+      padding: 1.5rem 2rem;
+      border-radius: var(--radius-md);
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+
+    .trophic-item {
+      text-align: center;
+    }
+
+    .trophic-item .val {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--turquoise-glow);
+    }
+
+    .trophic-item .lbl {
+      font-size: 0.85rem;
+      color: #b0d8cd;
+    }
+
+    /* Living Conditions Grid */
+    .living-box {
+      margin-top: 3rem;
+      background: var(--teal-light-bg);
+      border-radius: var(--radius-md);
+      padding: 2rem;
+    }
+
+    .living-box h3 {
+      color: var(--forest-dark);
+      font-size: 1.3rem;
+      margin-bottom: 1.2rem;
+      text-align: center;
+    }
+
+    .living-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .living-card {
+      background: white;
+      padding: 1.2rem 1.5rem;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border-color);
+    }
+
+    .living-card strong {
+      color: var(--forest-medium);
+      display: block;
+      margin-bottom: 0.3rem;
+    }
+
+    /* Image Display Banner */
+    .banner-img-container {
+      margin: 3rem 0;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--border-color);
+    }
+
+    .banner-img-container img {
+      width: 100%;
+      height: 320px;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* Section 3: Policies Layout */
+    .policy-container {
+      display: flex;
+      flex-direction: column;
+      gap: 1.8rem;
+    }
+
+    .policy-card {
+      background: white;
+      border-radius: var(--radius-md);
+      padding: 2rem;
+      border: 1px solid var(--border-color);
+      box-shadow: var(--shadow-sm);
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 2rem;
+      align-items: start;
+    }
+
+    .policy-badge-container {
+      background: var(--teal-light-bg);
+      padding: 1.2rem;
+      border-radius: var(--radius-sm);
+      text-align: center;
+      border: 1px solid rgba(0, 168, 150, 0.2);
+    }
+
+    .policy-badge-container h3 {
+      color: var(--forest-main);
+      font-size: 1.2rem;
+    }
+
+    .policy-details p {
+      color: var(--text-muted);
+      margin-bottom: 0.8rem;
+    }
+
+    .policy-subcard {
+      background: #f9fbfb;
+      padding: 1rem 1.2rem;
+      border-left: 3px solid var(--teal-primary);
+      margin-top: 0.8rem;
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    }
+
+    .policy-subcard strong {
+      color: var(--forest-main);
+    }
+
+    /* Section 4: Future & Conclusion */
+    .future-section {
+      background: linear-gradient(135deg, var(--forest-dark) 0%, var(--forest-main) 100%);
+      color: white;
+      border-radius: var(--radius-lg);
+      padding: 4rem 3rem;
+      box-shadow: var(--shadow-lg);
+      margin-bottom: 4rem;
+    }
+
+    .future-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .future-content h2 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 2.2rem;
+      color: var(--turquoise-glow);
+      margin-bottom: 1.2rem;
+    }
+
+    .future-content p {
+      color: #c9e8df;
+      font-size: 1.05rem;
+      margin-bottom: 1.5rem;
+      line-height: 1.7;
+    }
+
+    .conclusion-box {
+      background: rgba(255, 255, 255, 0.07);
+      border: 1px solid rgba(2, 195, 154, 0.3);
+      border-radius: var(--radius-md);
+      padding: 2rem;
+      backdrop-filter: blur(8px);
+    }
+
+    .conclusion-box h3 {
+      color: var(--teal-accent);
+      font-size: 1.3rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .conclusion-box p {
+      color: #e2f5f0;
+      margin-bottom: 0;
+    }
+
+    /* Footer */
+    footer {
+      background: var(--forest-dark);
+      color: #8da9a0;
+      text-align: center;
+      padding: 2.5rem 1rem;
+      font-size: 0.9rem;
+      border-top: 1px solid rgba(2, 195, 154, 0.15);
+    }
+
+    footer a {
+      color: var(--teal-accent);
+      text-decoration: none;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 900px) {
+      .hero-container, .bio-split, .future-grid, .policy-card {
+        grid-template-columns: 1fr;
+      }
+      
+      .hero h1 {
+        font-size: 2.4rem;
+      }
+
+      .nav-links {
+        display: none; /* Mobile view simplified */
+      }
+
+      .policy-card {
+        gap: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!--Navigation Header -->
+  <header>
+    <div class="nav-container">
+      <a href="#" class="logo">
+        Eco<span>Hazard</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#about">What is E-Waste</a></li>
+        <li><a href="#impacts">Environmental Impact</a></li>
+        <li><a href="#bio">Bioaccumulation</a></li>
+        <li><a href="#policies">Policies</a></li>
+        <li><a href="#future">Future & Solutions</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero" id="about">
+    <div class="hero-container">
+      <div class="hero-text">
+        <span class="badge">Subtopic: Environmental Hazards</span>
+        <h1>What is <span>E-Waste</span> ?</h1>
+        <p><strong>What is E-waste?</strong> E-waste is any broken, unwanted, or old electrical and electronic devices like phones, computers, and home appliances like toasters and many more that are burned and discarded.</p>
+      </div>
+      <div class="hero-img-card">
+        <img src="https://encrypted-tbn3.gstatic.com/licensed-image?q=tbn:ANd9GcQ6z8lOvkQaKdhy5OGktzh8bQelBOqjwtfcVI3Oy3St7VzOZgNnFu6czx5N-f9f296tTlryXLRt5iasZ-4" alt="Electronic trash pilled up.">
+        <div class="hero-img-caption">Electronic trash pilled up.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Environmental Impacts -->
+  <section class="section-container" id="impacts">
+    <div class="section-title">
+      <h2>Impact on Environment & Living Conditions</h2>
+      <p>How toxic electronic components ruin air, soil, and aquatic ecosystems.</p>
+      <div class="title-line"></div>
+    </div>
+
+    <div class="impact-grid">
+      <!-- Air Quality -->
+      <div class="card">
+        <div class="card-icon">☁️</div>
+        <h3>Air Quality</h3>
+        <p>Open burning of electrical wiring and melting of circuit boards releases dioxins, furans, and heavy metal vapours (like lead, mercury, and cadmium). These toxic emissions reduce the air basins and set toxic air around the land.</p>
+      </div>
+
+      <!-- Soil Contamination -->
+      <div class="card">
+        <div class="card-icon">🌱</div>
+        <h3>Soil & Agriculture</h3>
+        <p>Heavy metals and man-made chemicals containing bromine that are added to electronics <strong>(Brominated flame retardants: BFRs)</strong> are put directly into the soil from dumpsites. This destroys soil fertility, kills important microorganisms and enters the food chain through crop absorption.</p>
+      </div>
+
+      <!-- Water Toxification -->
+      <div class="card">
+        <div class="card-icon">💧</div>
+        <h3>Aquatic Toxification</h3>
+        <p>Rainwater mixing with decomposing electronics forms a toxic liquid called <strong>‘leachate’</strong>. Leachate drips down to pollute underground aquifers and runs off into surface waters, causing more fish to die and destroying freshwater habitats.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Bioaccumulation & Biomagnification -->
+  <section class="section-container" id="bio" style="padding-top: 0;">
+    <div class="section-title">
+      <h2>Bioaccumulation & Biomagnification</h2>
+      <p>How heavy metal toxins go through ecological food webs and poison it.</p>
+      <div class="title-line"></div>
+    </div>
+
+    <div class="bio-wrapper">
+      <div class="bio-split">
+        <!-- Bioaccumulation -->
+        <div class="bio-column">
+          <h3>Bioaccumulation</h3>
+          <p style="margin-bottom: 1rem; color: var(--text-muted);"><em>Absorption of toxins within a single organism over time:</em></p>
+          <ul>
+            <li><strong>Soil Contamination:</strong> Heavy metals from broken screens and circuit boards stay in the dirt.</li>
+            <li><strong>Water Pollution:</strong> Toxic fluids leak into local groundwater and nearby streams.</li>
+            <li><strong>Plant Absorption:</strong> Crops and wild plants absorb these poisons directly through their roots.</li>
+          </ul>
+        </div>
+
+        <!-- Biomagnification -->
+        <div class="bio-column">
+          <h3>Biomagnification</h3>
+          <p style="margin-bottom: 1rem; color: var(--text-muted);"><em>Increasing concentration of toxins up the food chain:</em></p>
+          <ul>
+            <li><strong>Small Organisms:</strong> Tiny aquatic life and insects absorb heavy metals first.</li>
+            <li><strong>Predators:</strong> Fish and birds eat many smaller creatures, storing higher levels of toxins inside their bodies.</li>
+            <li><strong>Top Predators:</strong> Large animals and humans get the highest dose of poison by eating contaminated meat or fish.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Banner Diagram Image -->
+      <div class="banner-img-container">
+    <img src="https://encrypted-tbn2.gstatic.com/licensed-image?q=tbn:ANd9GcS8OzTjt1nGFR-ueHIptRGVE18X3x2SHFZhGcqRdq1qRqalGj0p0NVHWTKXfCV3GmAcCvMQb0u8Wct3SCg" alt="Diagram showing bioaccumulation vs biomagnification in food chains">      </div>
+
+      <!-- Trophic Key Metrics -->
+      <div class="trophic-highlight">
+        <div class="trophic-item">
+          <div class="val">LD50</div>
+          <div class="lbl">Lethal Dose 50% Thresholds</div>
+        </div>
+        <div class="trophic-item">
+          <div class="val">10% Rule</div>
+          <div class="lbl">Energy Transfer and Toxin Augmentation</div>
+        </div>
+      </div>
+
+      <!-- Living Conditions -->
+      <div class="living-box">
+        <h3>Direct Effects on Living Conditions</h3>
+        <div class="living-grid">
+          <div class="living-card">
+            <strong>🏥 Health Risks</strong>
+            <p>People living near e-waste sites suffer from kidney failure and cancer.</p>
+          </div>
+          <div class="living-card">
+            <strong>⚠️ Unsafe Food & Water</strong>
+            <p>Local fish and crops become too poisonous to safely eat, and so does water</p>
+          </div>
+          <div class="living-card">
+            <strong>🌿 Habitat Loss</strong>
+            <p> Animals and plants die off, which ruins local ecosystems.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Policies Section -->
+  <section class="section-container" id="policies">
+    <div class="section-title">
+      <h2>Local, National & International Policies</h2>
+      <p>Laws that control how electronic waste is handled and traded between countries.</p>
+      <div class="title-line"></div>
+    </div>
+
+    <div class="policy-container">
+      <!-- Local -->
+      <div class="policy-card">
+        <div class="policy-badge-container">
+          <h3>📍 Local</h3>
+          <span style="font-size: 0.8rem; color: var(--teal-primary);">Community Scale</span>
+        </div>
+        <div class="policy-details">
+          <p>Local policies govern disposal bans and community collection logistics.</p>
+          <div class="policy-subcard">
+            <strong>Municipal Landfill Bans:</strong> City-level bylaws forbid placing electronics, batteries, and fluorescent bulbs in curbside trash or standard recycling bins to prevent landfill fires and leachate contamination.
+          </div>
+        </div>
+      </div>
+
+      <!-- National -->
+      <div class="policy-card">
+        <div class="policy-badge-container">
+          <h3>🇨🇦🇺🇸 National</h3>
+          <span style="font-size: 0.8rem; color: var(--teal-primary);">Government Scale</span>
+        </div>
+        <div class="policy-details">
+          <p>National governments establish environmental legislation, market-entry requirements, and trade enforcement.</p>
+          <div class="policy-subcard">
+            <strong>Customs & Export Controls:</strong> Agencies (such as Environment and Climate Change Canada or the US EPA) monitor international ports to stop illegal exports of non-functional devices mislabeled as "used goods".
+          </div>
+        </div>
+      </div>
+
+      <!-- International -->
+      <div class="policy-card">
+        <div class="policy-badge-container">
+          <h3>🌐 International</h3>
+          <span style="font-size: 0.8rem; color: var(--teal-primary);">Global Scale</span>
+        </div>
+        <div class="policy-details">
+          <p>International regulations focus on preventing hazardous waste dumping in developing nations.</p>
+          <div class="policy-subcard">
+            <strong>EU Directives (Global Benchmark Standards):</strong>
+            <ul style="margin-top: 0.5rem; padding-left: 1.2rem; color: var(--text-muted);">
+              <li><strong>RoHS Directive (Restriction of Hazardous Substances):</strong> Restricts ten specific toxic materials (lead, mercury, cadmium, hexavalent chromium, and specific flame retardants) in electronics manufactured or sold in the EU.</li>
+              <li style="margin-top: 0.4rem;"><strong>EU Eco-design for Sustainable Products Regulation:</strong> Manufacturers must design electronics for durability, repairability, and easy disassembly.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Future Holds + Conclusion -->
+  <section class="section-container" id="future">
+    <div class="future-section">
+      <div class="future-grid">
+        <div class="future-content">
+          <h2>What the Future Holds</h2>
+          <p>Fixing the e-waste problem means changing how we make and recycle tech. In the future, robots and AI will take apart old phones safely so people don't have to deal with toxic parts.</p>
+          <p>Companies are also starting to design modular devices, making it easy to swap out a broken battery instead of buying a whole new phone (e.g., fairphone). Overall, new tech and better laws will help us reuse valuable metals instead of throwing them away</p>
+        </div>
+        <div>
+          <img src="https://encrypted-tbn1.gstatic.com/licensed-image?q=tbn:ANd9GcRHgWRhHemQB-DBQkXrFpCEIx2DqgttL2GrkT_ILYFGSS23tBkI8R_wtptGKURMlXrQFc7BQUIOOlx4RjA" alt="Circular Economy and E-waste Recycling Concept" style="width: 100%; border-radius: var(--radius-md); border: 2px solid rgba(2, 195, 154, 0.4);">
+        </div>
+      </div>
+
+      <div class="conclusion-box" style="margin-top: 2.5rem;">
+        <h3>Conclusion</h3>
+        <p>E-waste is a huge problem that poisons our air, water, and soil while making people sick. But electronics also hold tons of valuable metals that we can recycle instead of throwing in landfills. To fix this, tech companies need to make longer-lasting devices, and governments need to enforce better recycling laws.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; Environmental Hazards Research Project | Subtopic: E-Waste Management</p>
+  </footer>
+
+</body>
+</html>
